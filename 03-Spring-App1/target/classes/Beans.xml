@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <bean id="credit" class="in.ashokit.beans.CreditCardPayment"/><!-- Bean Definition -->
+  
+  <bean id="debit" class="in.ashokit.beans.DebitCardPayment"/>
+  
+  <bean id="payment" class="in.ashokit.beans.PaymentService">
+  
+     <!-- name is reference variable ,name is optional, which object we should inject id(ref) of the dependent  -->
+     <!-- This is constructor dependency injection  -->
+  		<!--  <constructor-arg name="payment" ref="credit">
+  		
+  		</constructor-arg>-->
+  		
+  		<!-- This is  setter dependency injection -->
+  		<property name="payment" ref="debit"></property>
+  
+  </bean>
+  
+  <!-- it has 3 bean definitions -->
+  
+  <!-- (IOC)->it loaded 3 classes and created object,Constructor is executed means object is created -->
+
+</beans>
